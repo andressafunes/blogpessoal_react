@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Navibar() {
     return (
 
@@ -5,17 +7,19 @@ function Navibar() {
             <div className="w-full flex justify-center py-4 bg-indigo-900 text-white">
                 <div className="container flex justify-between text-lg mx-8">
                    
-                   <p className="font-bold">
-                    Blog Pessoal</p> 
+                   <p className="text-2xl font-bold"><Link to="/home">
+                    Blog Pessoal</Link></p> 
 
                 </div>
                 <div className="container flex justify-end mx-4">
                     
-                    <p>Postagens
+                    <p>
+                    Postagens
                     Temas
                     Cadastrar Temas
                     Perfil
-                    Sair</p>         
+                    Sair
+                    </p>         
                 
                 </div>
             </div>
