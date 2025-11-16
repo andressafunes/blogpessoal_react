@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Navibar() {
+
+    const navigate = useNavigate();
+
+    const {handleLogout} = useContext(AuthContext)
+
+    function logout(){
+
+        handleLogout();
+        alert('O Usuário foi desconectado com sucesso!')
+        navigate('/')
+        
+    }
+
     return (
 
         <>
@@ -18,7 +33,7 @@ function Navibar() {
                     Temas
                     Cadastrar Temas
                     Perfil
-                    Sair
+                    <Link to='' onClick={logout} className="houver:underline">Sair</Link>
                     </p>         
                 
                 </div>
