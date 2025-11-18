@@ -30,8 +30,8 @@ function Navibar() {
                     
                     <p>
                     Postagens
-                    Temas
-                    Cadastrar Temas
+                    <Link to='/temas' className="hover:underline">Temas</Link>
+                    <Link to='/cadastrartema' className="hover:underline">Cadastrar Temas</Link>
                     Perfil
                     <Link to='' onClick={logout} className="houver:underline">Sair</Link>
                     </p>         

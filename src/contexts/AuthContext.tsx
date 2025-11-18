@@ -35,7 +35,7 @@ export function AuthProvider({children}: AuthProviderProps){
         setIsLoading(true);
 
         try{
-            await login(`/usuario/logar`, UsuarioLogin, setUsuario);
+            await login(`/usuarios/logar`, UsuarioLogin, setUsuario);
             alert("Usuário autenticado com sucesso!");
 
         }catch(error){

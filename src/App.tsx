@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Footer from "./componentes/footer/Footer"
-import Navibar from "./componentes/navbar/Navibar"
+import Navibar from "./componentes/navbar/Navbar"
 import Home from "./pages/home/Home"
 import Cadastro from "./pages/cadastro/Cadastro"
 import { AuthProvider } from "./contexts/AuthContext"
 import Login from "./pages/login/Login"
+import ListaTemas from "./componentes/tema/listatemas/ListaTemas"
+import FormTema from "./componentes/tema/formtema/FormTema"
 
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/temas" element={<ListaTemas/>}/>
+              <Route path="/cadastrartema" element={<FormTema />} />
+              <Route path="/editartema/:id" element={<FormTema />} />
             </Routes>
           </div>
           <Footer />
