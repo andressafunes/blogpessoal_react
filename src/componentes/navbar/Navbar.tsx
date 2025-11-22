@@ -22,19 +22,18 @@ function Navibar() {
             <div className="w-full flex justify-center py-4 bg-indigo-900 text-white">
                 <div className="container flex justify-between text-lg mx-8">
                    
-                   <p className="text-2xl font-bold"><Link to="/home">
-                    Blog Pessoal</Link></p> 
+                   <Link to="/home" className="text-2xl font-bold">
+                    Blog Pessoal</Link>
 
                 </div>
-                <div className="container flex justify-end mx-4">
-                    
-                    <p>
-                    Postagens
+                <div className="flex gap-4 mx-8">
+                                      
+                    <Link to='/postagens' className="hover:underline">Postagens</Link>
                     <Link to='/temas' className="hover:underline">Temas</Link>
                     <Link to='/cadastrartema' className="hover:underline">Cadastrar Temas</Link>
                     Perfil
                     <Link to='' onClick={logout} className="houver:underline">Sair</Link>
-                    </p>         
+                             
                 
                 </div>
             </div>
