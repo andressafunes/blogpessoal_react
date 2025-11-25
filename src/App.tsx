@@ -10,6 +10,10 @@ import FormTema from "./componentes/tema/formtema/FormTema"
 import ListaPostagens from "./componentes/postagem/listapostagens/ListaPostagens"
 import FormPostagem from "./componentes/postagem/formpostagem/FormPostagem"
 import DeletarPostagem from "./componentes/postagem/deletarpostagem/DeletarPostagem"
+import Perfil from "./pages/perfil/Perfil"
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from "react-toastify"
+import AtualizarPerfil from "./pages/perfil/AtualizarPerfil"
 
 
 function App() {
@@ -19,6 +23,7 @@ function App() {
     <>
       {/* A <> Tag fantasma para limitação, sem ele não consegue retornar + de uma linha pode ser utilizado <div> também*/}
       <AuthProvider>
+        <ToastContainer />
         <BrowserRouter>
           <Navibar />
           <div className="min-h-[80vh]">
@@ -34,6 +39,9 @@ function App() {
               <Route path="/cadastrarpostagem" element={<FormPostagem />} />
               <Route path="/editarpostagem/:id" element={<FormPostagem />} />
               <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={<Perfil />} />
+              <Route path="/atualizarperfil" element={<AtualizarPerfil />} />
+ 
             </Routes>
           </div>
           <Footer />

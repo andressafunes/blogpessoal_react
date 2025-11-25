@@ -8,7 +8,7 @@ function Home() {
 
         <div
             
-            className="bg-indigo-900 flex justify-center"
+            className="bg-linear-to-r from-sky-700 via-sky-600 to-sky-500 flex justify-center"
         >
             {/* Grid que divide a tela em duas colunas */}
             <div

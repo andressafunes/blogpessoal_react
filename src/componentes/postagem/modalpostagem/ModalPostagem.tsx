@@ -12,6 +12,9 @@ function ModalPostagem(){
                 }
                 modal
                 contentStyle={{
+                    width: "40%",   
+                    maxWidth: "90%",   
+                    height: "70%",     
                     borderRadius: '1rem',
                     paddingBottom: '2rem',
                     backgroundColor: "white"

@@ -1,45 +1,71 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { useContext, type ReactNode } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navibar() {
 
     const navigate = useNavigate();
 
-    const {handleLogout} = useContext(AuthContext)
+    const { usuario, handleLogout } = useContext(AuthContext);
 
-    function logout(){
-
+    function logout() {
         handleLogout();
-        alert('O Usuário foi desconectado com sucesso!')
-        navigate('/')
-        
+        ToastAlerta("O usuário foi desconectado com sucesso!", "info");
+        navigate("/");
+    }
+
+    let component: ReactNode
+
+    if(usuario.token !== ""){
+        component = (
+
+            <nav className="w-full bg-linear-to-r from-sky-700 via-sky-600 to-sky-500 text-white shadow-md">
+            <div className="container mx-auto flex items-center justify-between py-4 px-6">
+
+                {/* LOGO */}
+                <Link to="/home" className="text-2xl font-bold hover:text-indigo-300 transition">
+                    Blog Pessoal
+                </Link>
+
+                {/* MENU */}
+                <div className="flex items-center gap-6 text-lg">
+
+                    <Link to="/postagens" className="hover:text-indigo-300 transition">
+                        Postagens
+                    </Link>
+
+                    <Link to="/temas" className="hover:text-indigo-300 transition">
+                        Temas
+                    </Link>
+
+                    <Link to="/cadastrartema" className="hover:text-indigo-300 transition">
+                        Cadastrar Temas
+                    </Link>
+
+                    <Link to='/perfil' className="hover:text-indigo-300 transition">
+                        Perfil
+                    </Link>
+                    
+
+                    <button
+                        onClick={logout}
+                        className="hover:text-red-400 transition"
+                    >
+                        Sair
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        )
     }
 
     return (
-
         <>
-            <div className="w-full flex justify-center py-4 bg-indigo-900 text-white">
-                <div className="container flex justify-between text-lg mx-8">
-                   
-                   <Link to="/home" className="text-2xl font-bold">
-                    Blog Pessoal</Link>
-
-                </div>
-                <div className="flex gap-4 mx-8">
-                                      
-                    <Link to='/postagens' className="hover:underline">Postagens</Link>
-                    <Link to='/temas' className="hover:underline">Temas</Link>
-                    <Link to='/cadastrartema' className="hover:underline">Cadastrar Temas</Link>
-                    Perfil
-                    <Link to='' onClick={logout} className="houver:underline">Sair</Link>
-                             
-                
-                </div>
-            </div>
+            {component }
         </>
-
-    )
+    );
 }
 
-export default Navibar
+export default Navibar;
